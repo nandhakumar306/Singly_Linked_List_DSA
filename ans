@@ -1,0 +1,87 @@
+class Node{
+    int data;
+    Node next;
+    // constructor 
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class SinglyLinkedList{
+    Node head;
+    // Insertatbegin
+    public void Insertatbegin(int data){
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head=newNode;
+    }
+    public void deleteatbegining(){
+        if(head==null){
+            System.out.println("no code is delete");
+            return;
+        }
+        head=head.next;
+    }
+    
+    //delete at end
+    public void deleteAtend(){
+        if(head==null){
+            head=head.next;
+            System.out.println("no code is delete");
+            return;
+        }
+            
+        
+         Node temp = head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
+        
+    }
+    
+    public void InsertAtend(int data){
+        Node newNode = new Node(data);
+        if(head==null){
+            head=newNode;
+            return;
+        }
+        
+        Node temp = head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+    }
+    
+    
+    //Display the elements 
+    public void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data + " ");
+            temp=temp.next;
+        }
+        System.out.println();
+    }
+}
+public class Main{
+    public static void main(String[]args){
+        SinglyLinkedList list=new SinglyLinkedList();
+        list.Insertatbegin(30);
+        list.Insertatbegin(80);
+        list.Insertatbegin(90);
+        list.InsertAtend(10);
+        list.InsertAtend(50);
+        list.InsertAtend(60);
+        list.InsertAtend(70);
+        list.deleteAtend();
+        list.deleteatbegining();
+      // list.deleteAtend();
+        list.display();
+    }
+}
+
+
+OUTPUT 
+80 30 10 50 60 70
